@@ -93,17 +93,13 @@ function handleGameOver(result: string) {
     plain.removeEventListener('click', handleClick);
   });
 
-  gameOverMsg!.classList.remove('hide');
+  gameOverMsgWrapper!.classList.remove('hide');
   if (result === 'draw') {
     gameOverMsg!.innerText = 'The game is tied... Cat wins.';
   } else {
     const winner = result.toUpperCase();
     gameOverMsg!.innerText = `${winner} wins the game!`;
   }
-
-  setTimeout(() => {
-    if (confirm('Play again?')) window.location.assign('/');
-  }, 300);
 }
 
 startGame();
