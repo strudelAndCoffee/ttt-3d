@@ -7,10 +7,11 @@
 
 :root {
   --bg-color: #333;
-  --plain-border-color: #999;
-  --cell-border-color: #ccc;
+  --med-color: #999;
+  --fg-color: #fff;
   --plain-size: 50vmin;
   --cell-size: calc(var(--plain-size) / 3.3);
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 .container {
@@ -31,15 +32,15 @@
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
-  border: 1px solid var(--plain-border-color);
+  border: 1px solid var(--med-color);
 }
 
-/* The Cell style code was copied from a repository that I own, but which contains references to code used with permission, which can be found at its original origin here: https://github.com/WebDevSimplified/JavaScript-Tic-Tac-Toe/blob/master/styles.css */
+/* The Cell and Mark style code was copied from a repository that I own, but which contains references to code used with permission, which can be found at its original origin here: https://github.com/WebDevSimplified/JavaScript-Tic-Tac-Toe/blob/master/styles.css */
 
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid var(--cell-border-color);
+  border: 1px solid var(--fg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,4 +66,63 @@
 .cell:nth-child(7),
 .cell:nth-child(8) {
   border-bottom: none;
+}
+
+.cell.x,
+.cell.o {
+  cursor: default;
+}
+
+.cell.x::before,
+.cell.x::after,
+.cell.o::before {
+  background-color: var(--fg-color);
+}
+
+.plain.x .cell:not(.x):not(.o):hover::before,
+.plain.x .cell:not(.x):not(.o):hover::after,
+.plain.o .cell:not(.x):not(.o):hover::before {
+  background-color: var(--med-color);
+}
+
+.cell.x::before,
+.cell.x::after,
+.plain.x .cell:not(.x):not(.o):hover::before,
+.plain.x .cell:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before,
+.plain.x .cell:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.plain.x .cell:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.cell.o::after,
+.plain.o .cell:not(.x):not(.o):hover::before,
+.plain.o .cell:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.o::before,
+.plain.o .cell:not(.x):not(.o):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.cell.o::after,
+.plain.o .cell:not(.x):not(.o):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: var(--bg-color);
 }
