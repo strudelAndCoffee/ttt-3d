@@ -1,61 +1,260 @@
-type Coordinate = Record<number, number>;
+type Coordinate = {
+  plainIndex: number;
+  cellIndex: number;
+};
 type Combo = Coordinate[];
 
 export const winConditions: Combo[] = [
   // plain 1
-  [{ 0: 0 }, { 0: 1 }, { 0: 2 }],
-  [{ 0: 3 }, { 0: 4 }, { 0: 5 }],
-  [{ 0: 6 }, { 0: 7 }, { 0: 8 }],
-  [{ 0: 0 }, { 0: 3 }, { 0: 6 }],
-  [{ 0: 1 }, { 0: 4 }, { 0: 7 }],
-  [{ 0: 2 }, { 0: 5 }, { 0: 8 }],
-  [{ 0: 0 }, { 0: 4 }, { 0: 8 }],
-  [{ 0: 2 }, { 0: 4 }, { 0: 6 }],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 0, cellIndex: 1 },
+    { plainIndex: 0, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 3 },
+    { plainIndex: 0, cellIndex: 4 },
+    { plainIndex: 0, cellIndex: 5 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 6 },
+    { plainIndex: 0, cellIndex: 7 },
+    { plainIndex: 0, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 0, cellIndex: 3 },
+    { plainIndex: 0, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 1 },
+    { plainIndex: 0, cellIndex: 4 },
+    { plainIndex: 0, cellIndex: 7 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 0, cellIndex: 5 },
+    { plainIndex: 0, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 0, cellIndex: 4 },
+    { plainIndex: 0, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 0, cellIndex: 4 },
+    { plainIndex: 0, cellIndex: 6 },
+  ],
   // plain 2
-  [{ 1: 0 }, { 1: 1 }, { 1: 2 }],
-  [{ 1: 3 }, { 1: 4 }, { 1: 5 }],
-  [{ 1: 6 }, { 1: 7 }, { 1: 8 }],
-  [{ 1: 0 }, { 1: 3 }, { 1: 6 }],
-  [{ 1: 1 }, { 1: 4 }, { 1: 7 }],
-  [{ 1: 2 }, { 1: 5 }, { 1: 8 }],
-  [{ 1: 0 }, { 1: 4 }, { 1: 8 }],
-  [{ 1: 2 }, { 1: 4 }, { 1: 6 }],
+  [
+    { plainIndex: 1, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 1 },
+    { plainIndex: 1, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 3 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 1, cellIndex: 5 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 6 },
+    { plainIndex: 1, cellIndex: 7 },
+    { plainIndex: 1, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 3 },
+    { plainIndex: 1, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 1 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 1, cellIndex: 7 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 5 },
+    { plainIndex: 1, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 1, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 1, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 1, cellIndex: 6 },
+  ],
   // plain 3
-  [{ 2: 0 }, { 2: 1 }, { 2: 2 }],
-  [{ 2: 3 }, { 2: 4 }, { 2: 5 }],
-  [{ 2: 6 }, { 2: 7 }, { 2: 8 }],
-  [{ 2: 0 }, { 2: 3 }, { 2: 6 }],
-  [{ 2: 1 }, { 2: 4 }, { 2: 7 }],
-  [{ 2: 2 }, { 2: 5 }, { 2: 8 }],
-  [{ 2: 0 }, { 2: 4 }, { 2: 8 }],
-  [{ 2: 2 }, { 2: 4 }, { 2: 6 }],
+  [
+    { plainIndex: 2, cellIndex: 0 },
+    { plainIndex: 2, cellIndex: 1 },
+    { plainIndex: 2, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 3 },
+    { plainIndex: 2, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 5 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 6 },
+    { plainIndex: 2, cellIndex: 7 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 0 },
+    { plainIndex: 2, cellIndex: 3 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 1 },
+    { plainIndex: 2, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 7 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 2 },
+    { plainIndex: 2, cellIndex: 5 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 0 },
+    { plainIndex: 2, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 2, cellIndex: 2 },
+    { plainIndex: 2, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
   // multi-plain column
-  [{ 0: 0 }, { 1: 0 }, { 2: 0 }],
-  [{ 0: 1 }, { 1: 1 }, { 2: 1 }],
-  [{ 0: 2 }, { 1: 2 }, { 2: 2 }],
-  [{ 0: 3 }, { 1: 3 }, { 2: 3 }],
-  [{ 0: 4 }, { 1: 4 }, { 2: 4 }],
-  [{ 0: 5 }, { 1: 5 }, { 2: 5 }],
-  [{ 0: 6 }, { 1: 6 }, { 2: 6 }],
-  [{ 0: 7 }, { 1: 7 }, { 2: 7 }],
-  [{ 0: 8 }, { 1: 8 }, { 2: 8 }],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 0 },
+    { plainIndex: 2, cellIndex: 0 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 1 },
+    { plainIndex: 1, cellIndex: 1 },
+    { plainIndex: 2, cellIndex: 1 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 2 },
+    { plainIndex: 2, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 3 },
+    { plainIndex: 1, cellIndex: 3 },
+    { plainIndex: 2, cellIndex: 3 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 4 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 4 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 5 },
+    { plainIndex: 1, cellIndex: 5 },
+    { plainIndex: 2, cellIndex: 5 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 6 },
+    { plainIndex: 1, cellIndex: 6 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 7 },
+    { plainIndex: 1, cellIndex: 7 },
+    { plainIndex: 2, cellIndex: 7 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 8 },
+    { plainIndex: 1, cellIndex: 8 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
   // multi-plain slant-y
-  [{ 0: 0 }, { 1: 3 }, { 2: 6 }],
-  [{ 0: 1 }, { 1: 4 }, { 2: 7 }],
-  [{ 0: 2 }, { 1: 5 }, { 2: 8 }],
-  [{ 0: 6 }, { 1: 3 }, { 2: 0 }],
-  [{ 0: 7 }, { 1: 4 }, { 2: 1 }],
-  [{ 0: 8 }, { 1: 5 }, { 2: 2 }],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 3 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 1 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 7 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 5 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 6 },
+    { plainIndex: 1, cellIndex: 3 },
+    { plainIndex: 2, cellIndex: 0 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 7 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 1 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 8 },
+    { plainIndex: 1, cellIndex: 5 },
+    { plainIndex: 2, cellIndex: 2 },
+  ],
   // multi-plain slant-x
-  [{ 0: 0 }, { 1: 1 }, { 2: 2 }],
-  [{ 0: 3 }, { 1: 4 }, { 2: 5 }],
-  [{ 0: 6 }, { 1: 7 }, { 2: 8 }],
-  [{ 0: 2 }, { 1: 1 }, { 2: 0 }],
-  [{ 0: 5 }, { 1: 4 }, { 2: 3 }],
-  [{ 0: 8 }, { 1: 7 }, { 2: 6 }],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 1 },
+    { plainIndex: 2, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 3 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 5 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 6 },
+    { plainIndex: 1, cellIndex: 7 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 1 },
+    { plainIndex: 2, cellIndex: 0 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 5 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 3 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 8 },
+    { plainIndex: 1, cellIndex: 7 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
   // multi-plain angle-xy
-  [{ 0: 0 }, { 1: 4 }, { 2: 8 }],
-  [{ 0: 2 }, { 1: 4 }, { 2: 6 }],
-  [{ 0: 6 }, { 1: 4 }, { 2: 2 }],
-  [{ 0: 8 }, { 1: 4 }, { 2: 0 }],
+  [
+    { plainIndex: 0, cellIndex: 0 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 8 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 2 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 6 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 6 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 2 },
+  ],
+  [
+    { plainIndex: 0, cellIndex: 8 },
+    { plainIndex: 1, cellIndex: 4 },
+    { plainIndex: 2, cellIndex: 0 },
+  ],
 ];

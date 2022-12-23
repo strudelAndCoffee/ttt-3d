@@ -14,15 +14,21 @@ plains?.forEach((plain) => {
 });
 
 function handleClick(target: EventTarget | null) {
+  const currentClass = xTurn ? X_CLASS : O_CLASS;
   const cell = target as HTMLDivElement;
-  xTurn ? cell.classList.add(X_CLASS) : cell.classList.add(O_CLASS);
-  checkWin();
+  cell.classList.add(currentClass);
+  cell.dataset.cell = currentClass;
+  if (checkWin(currentClass)) handleGameOver();
 }
 
-function checkWin() {
-  winConditions.forEach((combo) => {
-    combo.forEach((coordinate) => {
-      console.log(coordinate);
+function checkWin(currentClass: string) {
+  return winConditions.some((combo) => {
+    return combo.every((coordinate) => {
+      const plain = plains[coordinate.plainIndex];
+      const cell = plain.children[coordinate.cellIndex] as HTMLDivElement;
+      return cell.dataset.cell === currentClass;
     });
   });
 }
+
+function handleGameOver() {}
