@@ -38,7 +38,8 @@ function handleClick(e: Event) {
 
   const target = e.target ? e.target : null;
   const cell = target as HTMLDivElement;
-  if (cell.classList.contains(currentClass)) return;
+  if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS))
+    return;
 
   cell.classList.add(currentClass);
   cell.dataset.cell = currentClass;
