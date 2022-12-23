@@ -1,6 +1,6 @@
 # Tic Tac Toe 3D
 
-![License badge](https://img.shields.io/badge/License-MIT-green)
+![License badge](https://img.shields.io/badge/License-ISC-green)
 ![Code of Conduct badge](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)
 
 _a work in progress..._
@@ -19,4 +19,4 @@ Please review the Contributer Covenant [Code of Conduct](https://www.contributor
 
 ## License
 
-This project is licensed under [MIT](https://choosealicense.com/licenses/mit/)
+This project is licensed under [ISC](https://choosealicense.com/licenses/isc/)
