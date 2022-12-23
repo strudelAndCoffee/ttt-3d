@@ -10,7 +10,7 @@
   --med-color: #999;
   --fg-color: #fff;
   --plain-size: 50vmin;
-  --cell-size: calc(var(--plain-size) / 3.3);
+  --cell-size: calc(var(--plain-size) / 3);
   --mark-size: calc(var(--cell-size) * 0.9);
 }
 
@@ -40,32 +40,32 @@
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid var(--fg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
-.cell:first-child,
-.cell:nth-child(2),
+.cell:first-child {
+  border-right-color: var(--fg-color);
+  border-bottom-color: var(--fg-color);
+}
 .cell:nth-child(3) {
-  border-top: none;
+  border-left-color: var(--fg-color);
+  border-bottom-color: var(--fg-color);
 }
-
-.cell:nth-child(3n + 1) {
-  border-left: none;
+.cell:nth-child(5) {
+  border-color: var(--fg-color);
 }
-
-.cell:nth-child(3n + 3) {
-  border-right: none;
+.cell:nth-child(7) {
+  border-top-color: var(--fg-color);
+  border-right-color: var(--fg-color);
 }
-
-.cell:last-child,
-.cell:nth-child(7),
-.cell:nth-child(8) {
-  border-bottom: none;
+.cell:nth-child(9) {
+  border-top-color: var(--fg-color);
+  border-left-color: var(--fg-color);
 }
 
 .cell.x,
