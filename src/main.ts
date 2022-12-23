@@ -4,6 +4,7 @@ const X_CLASS = 'x';
 const O_CLASS = 'o';
 
 const plains = document.querySelectorAll('.plain');
+const gameOverMsgWrapper = document.getElementById('gameOverMsgWrapper');
 const gameOverMsg = document.getElementById('gameOverMsg');
 
 let isXTurn = true;
