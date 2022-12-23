@@ -4,3 +4,125 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+:root {
+  --bg-color: #333;
+  --med-color: #999;
+  --fg-color: #fff;
+  --plain-size: 50vmin;
+  --cell-size: calc(var(--plain-size) / 3.3);
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+.container {
+  background-color: var(--bg-color);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.plain {
+  width: var(--plain-size);
+  height: var(--plain-size);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  border: 1px solid var(--med-color);
+}
+
+/* The Cell and Mark style code was copied from a repository that I own, but which contains references to code used with permission, which can be found at its original origin here: https://github.com/WebDevSimplified/JavaScript-Tic-Tac-Toe/blob/master/styles.css */
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--fg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
+}
+
+.cell.x,
+.cell.o {
+  cursor: default;
+}
+
+.cell.x::before,
+.cell.x::after,
+.cell.o::before {
+  background-color: var(--fg-color);
+}
+
+.plain.x .cell:not(.x):not(.o):hover::before,
+.plain.x .cell:not(.x):not(.o):hover::after,
+.plain.o .cell:not(.x):not(.o):hover::before {
+  background-color: var(--med-color);
+}
+
+.cell.x::before,
+.cell.x::after,
+.plain.x .cell:not(.x):not(.o):hover::before,
+.plain.x .cell:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before,
+.plain.x .cell:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.plain.x .cell:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.cell.o::after,
+.plain.o .cell:not(.x):not(.o):hover::before,
+.plain.o .cell:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.o::before,
+.plain.o .cell:not(.x):not(.o):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.cell.o::after,
+.plain.o .cell:not(.x):not(.o):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: var(--bg-color);
+}
