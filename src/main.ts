@@ -4,6 +4,7 @@ const X_CLASS = 'x';
 const O_CLASS = 'o';
 
 const plains = document.querySelectorAll('.plain');
+const gameOverMsg = document.getElementById('gameOverMsg');
 
 let isXTurn = true;
 
@@ -86,9 +87,19 @@ function updatePlains() {
 }
 
 function handleGameOver(result: string) {
-  if (result === 'draw') alert('The game is tied... Cat wins.');
-  const winner = result.toUpperCase();
-  alert(`${winner} wins the game!`);
+  plains.forEach((plain) => {
+    plain.removeEventListener('click', handleClick);
+  });
+
+  setTimeout(() => {
+    if (result === 'draw')
+      gameOverMsg!.innerText = 'The game is tied... Cat wins.';
+
+    const winner = result.toUpperCase();
+    gameOverMsg!.innerText = `${winner} wins the game!`;
+  }, 500);
+
+  if (confirm('Play again?')) window.location.assign('/');
 }
 
 startGame();

@@ -23,6 +23,21 @@
   align-items: center;
 }
 
+.msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7em;
+  color: green;
+  text-shadow: 0 3px 6px black;
+}
+
 .plain {
   width: var(--plain-size);
   height: var(--plain-size);
