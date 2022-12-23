@@ -7,13 +7,13 @@
 
 :root {
   --bg-color: #333;
-  --med-color: #999;
-  --fg-color: #fff;
+  --med-color: #777;
+  --fg-color: #eee;
   --plain-size: 50vmin;
   --cell-size: calc(var(--plain-size) / 3);
   --mark-size: calc(var(--cell-size) * 0.9);
-  --msg-bg: rgba(0, 0, 0, 0.5);
-  --msg-color: rgba(0, 255, 0, 1);
+  --msg-bg: rgba(0, 0, 0, 0.6);
+  --msg-color: rgba(11, 222, 11, 1);
 }
 
 body {
