@@ -12,10 +12,15 @@
   --plain-size: 50vmin;
   --cell-size: calc(var(--plain-size) / 3);
   --mark-size: calc(var(--cell-size) * 0.9);
+  --msg-bg: rgba(0, 0, 0, 0.5);
+  --msg-color: rgba(0, 255, 0, 1);
+}
+
+body {
+  background-color: var(--bg-color);
 }
 
 .container {
-  background-color: var(--bg-color);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -29,13 +34,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: transparent;
+  background: var(--msg-bg);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 7em;
-  color: green;
-  text-shadow: 0 3px 6px black;
+  color: var(--msg-color);
+  text-shadow: 0 4px 8px black;
+  z-index: 999;
+}
+
+.hide {
+  display: none;
 }
 
 .plain {
