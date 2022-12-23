@@ -18,7 +18,8 @@ function handleClick(target: EventTarget | null) {
   const cell = target as HTMLDivElement;
   cell.classList.add(currentClass);
   cell.dataset.cell = currentClass;
-  if (checkWin(currentClass)) handleGameOver();
+  if (checkWin(currentClass)) handleGameOver(currentClass);
+  if (checkDraw()) handleGameOver('draw');
 }
 
 function checkWin(currentClass: string) {
@@ -31,4 +32,26 @@ function checkWin(currentClass: string) {
   });
 }
 
-function handleGameOver() {}
+function checkDraw() {
+  let filledPlains = 0;
+
+  plains.forEach((plain) => {
+    const cells: Element[] = Array.from(plain.children);
+
+    if (
+      cells.every((cellEl) => {
+        const cell = cellEl as HTMLDivElement;
+        return cell.dataset.cell === X_CLASS || cell.dataset.cell === O_CLASS;
+      })
+    )
+      filledPlains++;
+  });
+  if (filledPlains === 3) return true;
+  return false;
+}
+
+function handleGameOver(result: string) {
+  if (result === 'draw') alert('The game is tied... Cat wins.');
+  const winner = result.toUpperCase();
+  alert(`${winner} wins the game!`);
+}
