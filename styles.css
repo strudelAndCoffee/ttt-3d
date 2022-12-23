@@ -36,12 +36,33 @@ body {
   bottom: 0;
   background: var(--msg-bg);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 7em;
-  color: var(--msg-color);
-  text-shadow: 0 4px 8px black;
+  gap: 1em;
   z-index: 999;
+}
+
+.msg p {
+  font-size: 7em;
+  text-shadow: 0 4px 8px black;
+  color: var(--msg-color);
+}
+
+.msg a {
+  text-decoration: none;
+  font-size: 2.5em;
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+  padding: 0.1rem 0.9rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 4px 8px black;
+  border: 1px solid var(--fg-color);
+}
+
+.msg a:hover,
+.msg a:focus {
+  border-color: var(--msg-color);
 }
 
 .hide {
