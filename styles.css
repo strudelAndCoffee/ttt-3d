@@ -4,3 +4,65 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+:root {
+  --bg-color: #333;
+  --plain-border-color: #999;
+  --cell-border-color: #ccc;
+  --plain-size: 50vmin;
+  --cell-size: calc(var(--plain-size) / 3.3);
+}
+
+.container {
+  background-color: var(--bg-color);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.plain {
+  width: var(--plain-size);
+  height: var(--plain-size);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  border: 1px solid var(--plain-border-color);
+}
+
+/* The Cell style code was copied from a repository that I own, but which contains references to code used with permission, which can be found at its original origin here: https://github.com/WebDevSimplified/JavaScript-Tic-Tac-Toe/blob/master/styles.css */
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--cell-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
+}
