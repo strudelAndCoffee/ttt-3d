@@ -5,7 +5,7 @@
 
 _a work in progress..._
 
-[Playtest the production version](https://tic-tac-toe-3d.vercel.app/)
+[Playtest the development version](https://tic-tac-toe-3d.vercel.app/)
 
 ## Description
 
